@@ -39,61 +39,63 @@ public class Movement : MonoBehaviour
    {
       if (thrust.IsPressed())
       {
-         if (!audioSource.isPlaying)
-         {
-            audioSource.Play();
-         }
-
-         rb.AddRelativeForce(Vector3.up * thrustStrength * Time.fixedDeltaTime);
-         if (!mainBoosterParticles.isPlaying)
-         {
-            mainBoosterParticles.Play();
-         }
+         StartThrusting();
 
       }
       else
       {
-         mainBoosterParticles.Stop();
-         audioSource.Stop();
+         StopThrusting();
       }
    }
 
+   private void StopThrusting()
+   {
+      mainBoosterParticles.Stop();
+      audioSource.Stop();
+   }
+
+   private void StartThrusting()
+   {
+      if (!audioSource.isPlaying)
+      {
+         audioSource.Play();
+      }
+
+      rb.AddRelativeForce(Vector3.up * thrustStrength * Time.fixedDeltaTime);
+      if (!mainBoosterParticles.isPlaying)
+      {
+         mainBoosterParticles.Play();
+      }
+   }
    private void ProcessRotation()
    {
-      rb.freezeRotation = true; // freezing rotation so we can manually rotate
       float rotationInput = rotation.ReadValue<float>();
       UpdateBoosterParticles(rotationInput);
+      ApplyRotation(rotationInput);
+   }
+
+   private void ApplyRotation(float rotationInput)
+   {
+      rb.freezeRotation = true;
       transform.Rotate(Vector3.forward * -rotationInput * rotationStrength * Time.fixedDeltaTime);
-
-      rb.freezeRotation = false; // unfreezing rotation so the physics system can take over
-
-
+      rb.freezeRotation = false;
    }
 
    private void UpdateBoosterParticles(float rotationInput)
    {
-      if (rotationInput < 0)
-      {
-         if (!rightBoosterParticles.isPlaying)
-         {
-            rightBoosterParticles.Play();
-         }
-      }
-      else
-      {
-         rightBoosterParticles.Stop();
-      }
+      UpdateBooster(rightBoosterParticles, rotationInput < 0);
+      UpdateBooster(leftBoosterParticles, rotationInput > 0);
+   }
 
-      if (rotationInput > 0)
+   private void UpdateBooster(ParticleSystem booster, bool shouldPlay)
+   {
+      if (shouldPlay)
       {
-         if (!leftBoosterParticles.isPlaying)
-         {
-            leftBoosterParticles.Play();
-         }
+         if (!booster.isPlaying) booster.Play();
       }
       else
       {
-         leftBoosterParticles.Stop();
+         booster.Stop();
       }
    }
 
