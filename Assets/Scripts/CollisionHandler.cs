@@ -1,7 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
@@ -13,15 +13,21 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem successParticles;
     AudioSource audioSource;
     bool isControllable = true;
+    bool isColliable = true;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        RespondToDebugKeys();
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        if (!isControllable) { return; }
+        if (!isControllable || !isColliable) { return; }
         string tag = other.gameObject.tag;
         switch (tag)
         {
@@ -73,5 +79,17 @@ public class CollisionHandler : MonoBehaviour
         successParticles.Play();
         GetComponent<Movement>().enabled = false;
         Invoke("NextLevel", delay);
+    }
+
+    void RespondToDebugKeys()
+    {
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            NextLevel();
+        }
+        else if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            isControllable = !isControllable;
+        }
     }
 }
