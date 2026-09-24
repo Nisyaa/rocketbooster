@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/up.unity
+    path: Assets/Scenes/Moon.unity
     guid: e6675b83f8b933145aac9e8ae80693fb
   - enabled: 1
-    path: Assets/Scenes/down.unity
+    path: Assets/Scenes/Traps.unity
     guid: 844337306c1d326498ac8bf200ff5461
   - enabled: 1
     path: Assets/Scenes/throught.unity
