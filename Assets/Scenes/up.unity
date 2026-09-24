@@ -2036,6 +2036,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8637838066916680482, guid: 2b84a9e660a886744a1f9a300789b639, type: 3}
+      propertyPath: Composition.DeadZone.Size.x
+      value: 0.2647738
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637838066916680482, guid: 2b84a9e660a886744a1f9a300789b639, type: 3}
+      propertyPath: Composition.ScreenPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637838066916680482, guid: 2b84a9e660a886744a1f9a300789b639, type: 3}
+      propertyPath: Composition.HardLimits.Size.x
+      value: 0.3110049
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637838066916680482, guid: 2b84a9e660a886744a1f9a300789b639, type: 3}
+      propertyPath: Composition.HardLimits.Size.y
+      value: 0.2732802
+      objectReference: {fileID: 0}
     - target: {fileID: 8676454772343210182, guid: 2b84a9e660a886744a1f9a300789b639, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
