@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.143
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8365584450992093620, guid: 2b84a9e660a886744a1f9a300789b639, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40.5
+      value: -44.44
       objectReference: {fileID: 0}
     - target: {fileID: 8365584450992093620, guid: 2b84a9e660a886744a1f9a300789b639, type: 3}
       propertyPath: m_LocalRotation.w
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
-  CameraDistance: 10.5
+  CameraDistance: 14.44
   DeadZoneDepth: 0
   Composition:
     ScreenPosition: {x: 0, y: 0}
@@ -1146,7 +1146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1231439139784765919, guid: a86d3f83f323d734ab5f57070e0a7aa9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40.5
+      value: -44.44
       objectReference: {fileID: 0}
     - target: {fileID: 1231439139784765919, guid: a86d3f83f323d734ab5f57070e0a7aa9, type: 3}
       propertyPath: m_LocalRotation.w
