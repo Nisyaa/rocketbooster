@@ -22,7 +22,9 @@ public class CollisionHandler : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
         RespondToDebugKeys();
+#endif
     }
 
     private void OnCollisionEnter(Collision other)
